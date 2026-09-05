@@ -36,7 +36,7 @@ dependencies. It is an environment snapshot, not a tested installation recipe
 for current operating systems. Use an isolated development environment.
 
 ```bash
-git clone https://github.com/shitongzhu/NeuroMerge.git
+git clone https://github.com/seclab-ucr/NeuroMerge.git
 cd NeuroMerge
 conda env create --file neuse_env.yml
 conda activate neuse
