@@ -1,0 +1,56 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+cmake-build-debug
+build
+third
+.vscode
+.cache
+.idea
+.gradle/
+**/.gradle/
+
+# Local/editor artifacts
+.DS_Store
+**/.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.log
+
+# Local secrets and machine-specific configuration
+.env
+.env.*
+*.pem
+*.key
+*.crt

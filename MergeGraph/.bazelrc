@@ -1,0 +1,69 @@
+# See: https://bazel.build/versions/master/docs/bazel-user-manual.html#flag--compilation_mode
+
+# This project requires c++14.
+#
+# NOTE(cummins): This flag has to be pushed out to the copts argument of a
+# handful of cxx targets, grep for them when changing the standard.
+#
+# NOTE(cummins): LLVM 3.8 is not compatible with C++17 or later.
+build --cxxopt='-std=c++14'
+test --cxxopt='-std=c++14'
+
+# Workaround for broken grpc build on macOS.
+# See: https://github.com/bazelbuild/bazel/issues/4341
+build --copt -DGRPC_BAZEL_BUILD
+test --copt -DGRPC_BAZEL_BUILD
+
+# Show test error output. Override using --test_output={summary,full}.
+test --test_output=errors
+
+# Show test error output. Override using --test_output={summary,full}.
+test --test_output=errors
+
+# Address sanitizer
+# To use it: bazel build --config asan
+build:asan --strip=never
+build:asan --copt -fsanitize=address
+build:asan --copt -DADDRESS_SANITIZER
+build:asan --copt -O1
+build:asan --copt -g
+build:asan --copt -fno-omit-frame-pointer
+build:asan --linkopt -fsanitize=address
+
+# Thread sanitizer
+# bazel build --config tsan
+build:tsan --strip=never
+build:tsan --copt -fsanitize=thread
+build:tsan --copt -DTHREAD_SANITIZER
+build:tsan --copt -DDYNAMIC_ANNOTATIONS_ENABLED=1
+build:tsan --copt -DDYNAMIC_ANNOTATIONS_EXTERNAL_IMPL=1
+build:tsan --copt -O1
+build:tsan --copt -fno-omit-frame-pointer
+build:tsan --linkopt -fsanitize=thread
+
+# --config msan: Memory sanitizer
+build:msan --strip=never
+build:msan --copt -fsanitize=memory
+build:msan --copt -DADDRESS_SANITIZER
+build:msan --copt -O1
+build:msan --copt -fno-omit-frame-pointer
+build:msan --linkopt -fsanitize=memory
+
+# --config ubsan: Undefined Behavior Sanitizer
+build:ubsan --strip=never
+build:ubsan --copt -fsanitize=undefined
+build:ubsan --copt -O1
+build:ubsan --copt -fno-omit-frame-pointer
+build:ubsan --linkopt -fsanitize=undefined
+build:ubsan --linkopt -lubsan
+
+# --config ci: Continuous Integration tool
+query:ci --noshow_progress
+query:ci --noshow_loading_progress
+build:ci --noshow_progress
+build:ci --noshow_loading_progress
+build:ci --show_task_finish
+build:ci --action_env=PATH
+build:ci --keep_going
+build:ci --verbose_failures
+build:ci --test_output=errors

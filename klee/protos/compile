@@ -1,0 +1,6 @@
+
+
+
+
+protoc   --grpc_out=../lib/route_guide --plugin=protoc-gen-grpc=`which grpc_cpp_plugin`   route_guide.proto 
+protoc  --cpp_out=../lib/route_guide route_guide.proto

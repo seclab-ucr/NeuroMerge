@@ -1,0 +1,30 @@
+cycler  # Needed by matplotlib.
+decorator
+gast # Dependency of tensorflow.
+GPUtil
+Keras
+kiwisolver  # Needed by matplotlib.
+isodate  # Needed by torch.
+joblib  # Needed by scikit-learn
+matplotlib
+networkx
+numpy
+pandas
+pathlib
+protobuf
+psutil
+pyparsing
+python-dateutil
+pytz
+PyYAML
+scikit-learn
+scipy
+seaborn
+torch==1.6.0
+torch_cluster
+torch_geometric
+torch_scatter
+torch_sparse==0.6.6
+tqdm
+labm8
+programl==0.3.0
