@@ -113,4 +113,5 @@ Third-party license files and copyright notices are retained in place; see
 a new blanket license to the mixed-source tree.
 
 For artifact questions or missing experiment inputs, please open an issue in
-this repository or contact Shitong Zhu at `szhu014@ucr.edu`.
+this repository or contact Shenghan Zheng at `szhen075@ucr.edu` or
+Shitong Zhu at `szhu014@ucr.edu`.
